@@ -1,16 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Interface System</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body, html {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        font-family: 'Audiowide', sans-serif;
+
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 20px;
+        padding: 20px;
+        width: 30%;
+        align-items: center;
+    }
+
+    .container button {
+        padding: 20px;
+        font-size: 18px;
+        border: none;
+        background-color: #ddd;
+        font-family: 'Audiowide', sans-serif;
+    }
+</style>
 </head>
 <body>
 
 <div class="header">
-    <h1>Lab Interface System</h1>
-    <button id="logout">Logout</button>
+    <h1 class="head" align="center">Lab Information System</h1>
+    <a id="logout">Logout</a>
 </div>
 
 <div class="container">
@@ -18,6 +53,7 @@
     <button>New Patient</button>
     <button>Physician List</button>
     <button>Order List</button>
+    <button>Users Info</button>
 </div>
 
 </body>
