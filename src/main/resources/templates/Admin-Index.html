@@ -34,12 +34,14 @@
             align-items: center;
         }
 
-        .container button {
+        .container a {
             padding: 20px;
             font-size: 18px;
             border: none;
             background-color: #ddd;
             font-family: 'Audiowide', sans-serif;
+            padding-left: 36%;
+            color: black;
         }
     </style>
 </head>
@@ -51,11 +53,11 @@
 </div>
 
 <div class="container">
-    <button>All Patients</button>
-    <button>New Patient</button>
-    <button>Physician List</button>
-    <button>Order List</button>
-    <button>Users Info</button>
+    <a th:href="${'/LIS/allPatients'}">All Patients</a>
+    <a>New Patient</a>
+    <a>Physician List</a>
+    <a>Order List</a>
+    <a>Users Info</a>
 </div>
 
 </body>
