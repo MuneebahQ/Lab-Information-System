@@ -10,7 +10,7 @@ import java.util.List;
 public interface PatientsRepository extends JpaRepository<Patients, Integer> {
 
     Patients findBypatId(int id);
-    List<Patients> findBylName(String keyword);
+    List<Patients> findBylNameStartingWith(String keyword);
 
 
 }

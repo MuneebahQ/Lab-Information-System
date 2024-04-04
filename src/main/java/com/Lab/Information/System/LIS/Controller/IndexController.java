@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/LIS")
-public class Admin {
+public class IndexController {
 
-    @RequestMapping(value = "/admin", method = {RequestMethod.GET})
-    public String adminIndex(){
+    @RequestMapping(value = "", method = {RequestMethod.GET})
+    public String index(){
         return "Admin-Index.html";
     }
 }
+

@@ -17,14 +17,17 @@ public class PatientsService {
 
     public List<Patients> getAllPatients(String Keyword) {
         if (Keyword != null) {
-            List<Patients> pat = patientsRepository.findBylName(Keyword);
+            List<Patients> pat = patientsRepository.findBylNameStartingWith(Keyword);
             Collections.reverse(pat);
             return pat;
         }
 
-        List<Patients> patients = patientsRepository.findAll(Sort.by("patId").descending());
-        Collections.reverse(patients);
-        return patients;
+        return patientsRepository.findAll(Sort.by("patId").descending());
     }
+
+    public void addOrUpdatePatient(Patients patient) {
+        patientsRepository.save(patient);
+    }
+
 
 }

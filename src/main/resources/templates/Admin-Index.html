@@ -52,9 +52,13 @@
     <a id="logout">Logout</a>
 </div>
 
+<div th:if="${message}" class="alert alert-success text-center">
+    [[${message}]]
+</div>
+
 <div class="container">
     <a th:href="${'/LIS/allPatients'}">All Patients</a>
-    <a>New Patient</a>
+    <a th:href="${'/LIS/patient/new'}" th:method="GET">New Patient</a>
     <a>Physician List</a>
     <a>Order List</a>
     <a>Users Info</a>
