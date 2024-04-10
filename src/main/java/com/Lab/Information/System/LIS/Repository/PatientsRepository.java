@@ -8,8 +8,6 @@ import java.util.List;
 
 @Repository
 public interface PatientsRepository extends JpaRepository<Patients, Integer> {
-
-    Patients findBypatId(int id);
     List<Patients> findBylNameStartingWith(String keyword);
 
 

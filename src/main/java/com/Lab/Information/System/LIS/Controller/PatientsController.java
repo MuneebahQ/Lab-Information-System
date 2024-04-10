@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -43,6 +44,7 @@ public class PatientsController {
         List<Physicians> physicians = physiciansService.getAllPhysicians();
         model.addAttribute("physician", physicians);
         model.addAttribute("pageTitle", "Add New Patient");
+        model.addAttribute("page", "edit");
         ra.addFlashAttribute("message", "The Patient has been saved Successfully.");
         model.addAttribute("patient", new Patients());
         return "newPatient.html";
@@ -51,8 +53,29 @@ public class PatientsController {
     public String AddOrUpdate(Patients patient){
         patientsService.addOrUpdatePatient(patient);
 
-        return "redirect:/LIS";
+        return "redirect:/LIS/allPatients";
     }
+
+    @GetMapping("patient/edit/{id}")
+    public String getPatientById(@PathVariable("id") int patientId, Model model, RedirectAttributes ra){
+        List<Physicians> physicians = physiciansService.getAllPhysicians();
+        try {
+            Patients patient = patientsService.getPatientById(patientId);
+            model.addAttribute("physician", physicians);
+            model.addAttribute("patient", patient);
+            model.addAttribute("page", "edit");
+            model.addAttribute("pageTitle", "Edit User (ID: "+ patientId +" )");
+            return "newPatient";
+        }
+        catch (Exception e){
+            ra.addFlashAttribute("message", "The Patient has been saved Successfully");
+
+            return "redirect:/LIS/allPatient";
+        }
+
+    }
+
+
 
 
 }

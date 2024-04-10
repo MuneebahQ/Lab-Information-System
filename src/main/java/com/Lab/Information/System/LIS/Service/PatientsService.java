@@ -30,4 +30,7 @@ public class PatientsService {
     }
 
 
+    public Patients getPatientById(int patientId) {
+        return patientsRepository.findById(patientId).orElse(null);
+    }
 }

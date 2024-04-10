@@ -91,6 +91,9 @@
         </li>
 
     </ul>
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
 
     <tr>
         <table class="table table-bordered">
@@ -100,22 +103,19 @@
                 <th class="r">Last Name</th>
                 <th class="r">First Name</th>
                 <th class="r">DOB</th>
-<!--                <th class="r">SSN</th>-->
                 <th class="r">Address</th>
                 <th class="r">City</th>
                 <th class="r">State</th>
                 <th class="r">ZipCode</th>
                 <th class="r">Order Date</th>
-                          <th class = "r">Physician</th>
-                <th class="r">Edit</th>
+                <th class = "r">Physician</th>
                 <th class="r">Order List</th>
                 <th class="r">Orders</th>
-                <!--        <th class = "r">Delete</th>-->
             </tr>
             </thead>
             <tbody>
             <tr th:each="pat : ${listpatients}">
-                <td class="r" th:text="${pat.patId}"></td>
+                <td class="r"><a th:href="@{'/LIS/patient/edit/' + ${pat.patId}}" th:text="${pat.patId}"></a></td>
                 <td class="r" th:text="${pat.lName}"></td>
                 <td class="r" th:text="${pat.fName}"></td>
                 <td class="r" th:text="${pat.DOB}"></td>
@@ -125,10 +125,6 @@
                 <td class="r" th:text="${pat.zipcode}"></td>
                 <td class="r" th:text="${pat.orderdate}"></td>
                 <td class="r" th:text="${pat.phyId.name}"></td>
-
-            <td>
-                <a class="e">Edit</a>
-            </td>
             <td>
                 <a class="e">Add Order</a>
             </td>
