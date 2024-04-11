@@ -28,7 +28,7 @@
 <div>
   <h2 class="head" align="center"><a th:href="${'/LIS'}">Lab Information System</a></h2>
 
-  </ul>
+  <br>
 
 
   <div><h2 class="head" align="center">[[${pageTitle}]]</h2></div>
@@ -149,7 +149,7 @@
 
       <div class="text-center">
         <button type="submit" class="btn btn-primary m-2">Save</button>
-        <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Cancel</button>
+        <a type="button" class="btn btn-secondary m-2" th:if="${page}" onclick="cancelForm()">Cancel</a>
 
       </div>
 
@@ -169,7 +169,7 @@ $(document).ready(function(){
   });
 
     function cancelForm(){
-    window.location = "[[@{/LIS}]]"
+    window.location = "[[@{/LIS/allPatients}]]"
 
     }
 

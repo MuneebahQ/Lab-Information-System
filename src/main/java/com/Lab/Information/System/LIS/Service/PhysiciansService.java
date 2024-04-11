@@ -16,4 +16,12 @@ public class PhysiciansService {
     public List<Physicians> getAllPhysicians() {
         return physiciansRepository.findAll();
     }
+
+    public Physicians addOrUpdatePhysician(Physicians physician) {
+        return physiciansRepository.save(physician);
+    }
+
+    public Physicians getPhysicianById(int physicianId) {
+        return physiciansRepository.findById(physicianId).orElse(null);
+    }
 }

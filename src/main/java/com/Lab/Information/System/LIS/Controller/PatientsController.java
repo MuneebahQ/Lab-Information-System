@@ -44,7 +44,7 @@ public class PatientsController {
         List<Physicians> physicians = physiciansService.getAllPhysicians();
         model.addAttribute("physician", physicians);
         model.addAttribute("pageTitle", "Add New Patient");
-        model.addAttribute("page", "edit");
+//        model.addAttribute("page", "edit");
         ra.addFlashAttribute("message", "The Patient has been saved Successfully.");
         model.addAttribute("patient", new Patients());
         return "newPatient.html";
