@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+  <style>
+    body {
+      background-image: url('/images/lab1.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+    }
+
+    h2.head {
+      font-family: "Audiowide", sans-serif;
+    }
+
+    h2 a {
+      color: black;
+    }
+
+    a.nav-link {
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: "Audiowide", sans-serif;
+    }
+
+    a.e {
+      color: black;
+      font-size: 15px;
+      font-weight: bold;
+      font-family: "Audiowide", sans-serif;
+    }
+
+    a.e1 {
+      color: red;
+      font-size: 15px;
+      font-weight: bold;
+      font-family: "Audiowide", sans-serif;
+    }
+
+    th.r {
+      font-size: 15px;
+      font-family: "Audiowide", sans-serif;
+    }
+
+    td.r {
+      font-size: 15px;
+      font-family: "Audiowide", sans-serif;
+    }
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <title>Lab Information System</title>
+</head>
+<body>
+<div>
+  <h2 class="head" align="center"><a th:href="${'/LIS/allPatients'}">Lab Information System</a></h2>
+
+  <h2 class="head" align="center">Orders</h2>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+      <th class="r">Test Code</th>
+      <th class="r">Test Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="tro" th:each="orders : ${orders}">
+      <td class="r" th:text="${orders.orderListId.testCode}"></td>
+      <td class="r" th:text="${orders.orderListId.desCription}"></td>
+      <td> <button class="btn btn-danger m-2" th:value="${orders.orderId}" onclick="Delete(this.value)">Delete</button></td>
+    </tr>
+
+
+    </tbody>
+  </table>
+
+  </tbody>
+  </table>
+</div>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  function Delete(orderId) {
+    alert("Are you sure you want to delete this order?")
+
+    console.log(orderId);
+    $.ajax({
+      type : "DELETE",
+      url : "http://localhost:8080/LIS/order/delete/orderId/" + orderId,
+      success: function (result) {
+        alert("Order has been Deleted!");
+      },
+      error: function (e) {
+        console.log(e);
+      }
+    });
+  }
+</script>
+</body>
+</html>

@@ -126,10 +126,10 @@
                 <td class="r" th:text="${pat.orderdate}"></td>
                 <td class="r" th:text="${pat.phyId.name}"></td>
             <td>
-                <a class="e">Add Order</a>
+                <a class="e" th:href="@{'/LIS/addOrder/pat_id/' + ${pat.patId}}">Add Order</a>
             </td>
             <td>
-                <a class="e">Orders</a>
+                <a class="e" th:href="@{'/LIS/allOrders/patId/' + ${pat.patId}}">Orders</a>
             </td>
 
     </tr>
